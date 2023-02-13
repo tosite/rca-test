@@ -23,4 +23,4 @@ jobs:
           action: notify
           isDebug: 1
           slackWebhook: ${{ secrets.SLACK_WEBHOOK }}
-          mention: '@tosite'
+          mention: '<@U02HJ7CPNNL>'
