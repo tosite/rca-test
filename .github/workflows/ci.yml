@@ -18,7 +18,7 @@ jobs:
           echo ${{ secrets.SLACK_WEBHOOK }}
       -
         name: Run release-confirmation
-        uses: tosite/release-confirmation-action@v0.0.43
+        uses: tosite/release-confirmation-action@v0.0.44
         with:
           action: notify
           isDebug: 1
