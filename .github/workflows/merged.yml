@@ -20,8 +20,18 @@ jobs:
         run: |
           echo ${{ secrets.SLACK_WEBHOOK }}
       -
-        name: Run release-confirmation
+        name: Run add-merged-label
         uses: tosite/release-confirmation-action@v0.0.45
         with:
           action: merged
+          isDebug: 1
+      -
+        name: Deploy
+        run: |
+          echo deploy
+      -
+        name: Run add-released-label
+        uses: tosite/release-confirmation-action@v0.0.45
+        with:
+          action: released
           isDebug: 1
