@@ -1,0 +1,27 @@
+name: Tiny workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  release-comment:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: test
+        run: |
+          echo ${{ secrets.SLACK_WEBHOOK }}
+      -
+        name: Run release-confirmation
+        uses: tosite/release-confirmation-action@v0.0.45
+        with:
+          action: merged
+          isDebug: 1
