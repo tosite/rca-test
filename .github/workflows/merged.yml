@@ -1,13 +1,16 @@
-# .github/workflows/ci.yml
 name: Tiny workflow
 
 on:
   pull_request:
+    branches:
+      - main
+    types: [closed]
 
 jobs:
   release-comment:
     permissions: write-all
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       -
         name: Checkout
@@ -20,7 +23,5 @@ jobs:
         name: Run release-confirmation
         uses: tosite/release-confirmation-action@v0.0.45
         with:
-          action: notify
+          action: merged
           isDebug: 1
-          slackWebhook: ${{ secrets.SLACK_WEBHOOK }}
-          mention: '<@U02HJ7CPNNL>'
