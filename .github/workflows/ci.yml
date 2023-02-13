@@ -3,7 +3,6 @@ name: Tiny workflow
 
 on:
   pull_request:
-  push:
 
 jobs:
   release-comment:
@@ -23,3 +22,5 @@ jobs:
           echo ${{ github.event.pull_request.number }}
           echo ${{ github.event.pull_request.title }}
           echo ${{ github.event.repository.name }}
+          echo ${{ github.event.repository }}
+          echo ${{ github.repository }}
