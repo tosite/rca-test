@@ -1,0 +1,19 @@
+# .github/workflows/ci.yml
+name: Tiny workflow
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  release-comment:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Run release-confirmation
+        uses: tosite/release-confirmation-action@v0
+        with:
+          workflow-file: myworkflow.yml
