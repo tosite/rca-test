@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Run release-confirmation
-        uses: tosite/release-confirmation-action@v0.0.23
+        uses: tosite/release-confirmation-action@v0.0.24
         with:
           action: label
           isDebug: 1
