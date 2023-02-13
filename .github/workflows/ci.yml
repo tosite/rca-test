@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Run release-confirmation
-        uses: tosite/release-confirmation-action@v0.0.36
+        uses: tosite/release-confirmation-action@v0.0.37
         with:
           action: notify
           isDebug: 1
+          slackWebhook: ${{ secrets.SLACK_WEBHOOK }}
