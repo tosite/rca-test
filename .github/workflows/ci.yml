@@ -17,3 +17,8 @@ jobs:
         uses: tosite/release-confirmation-action@v0.0.10
         with:
           action: label
+      -
+        name: test
+        run: |
+          echo ${{ github.event.repository.name }}
+          
