@@ -17,3 +17,9 @@ jobs:
         uses: tosite/release-confirmation-action@v0.0.12
         with:
           action: label
+      -
+        name: test
+        run: |
+          echo ${{ github.event.pull_request.number }}
+          echo ${{ github.event.pull_request.title }}
+          echo ${{ github.event.repository.name }}
