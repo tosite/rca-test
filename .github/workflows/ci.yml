@@ -17,4 +17,4 @@ jobs:
         uses: tosite/release-confirmation-action@v0.0.9
         with:
           action: label
-          repo: { context.repo.repo }
+          repo: ${ context.repo.repo }
