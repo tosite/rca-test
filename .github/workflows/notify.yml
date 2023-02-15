@@ -24,3 +24,4 @@ jobs:
           channel: '#random'
           showReleasedPulls: 1
           releasedDays: 100
+          slackWebhook: ${{ secrets.SLACK_WEBHOOK }}
