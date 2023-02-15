@@ -2,9 +2,6 @@ name: Tiny workflow
 
 on:
   pull_request:
-    branches:
-      - main
-    types: [closed]
 
 jobs:
   release-comment:
@@ -23,15 +20,8 @@ jobs:
         name: Run add-merged-label
         uses: tosite/release-confirmation-action@v0
         with:
-          action: merged
+          action: notify
           isDebug: 1
-      -
-        name: Deploy
-        run: |
-          echo deploy
-      -
-        name: Run add-released-label
-        uses: tosite/release-confirmation-action@v0
-        with:
-          action: released
-          isDebug: 1
+          channel: '#random'
+          showReleasedPulls: 1
+          releasedDays: 100
