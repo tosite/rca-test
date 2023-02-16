@@ -2,15 +2,11 @@ name: Tiny workflow
 
 on:
   pull_request:
-    branches:
-      - main
-    types: [closed]
 
 jobs:
   release-comment:
     permissions: write-all
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     steps:
       -
         name: Checkout
@@ -35,3 +31,18 @@ jobs:
         with:
           action: released
           isDebug: 1
+      -
+        name: test
+        run: |
+          echo ${{ secrets.SLACK_WEBHOOK }}
+      -
+        name: Run add-merged-label
+        uses: tosite/release-confirmation-action@v0
+        with:
+          action: notify
+          isDebug: 1
+          channel: '#random'
+          showReleasedPulls: 1
+          releasedDays: 100
+          slackWebhook: ${{ secrets.SLACK_WEBHOOK }}
+          TargetRepositories: 'tosite/rca-test,tosite/notion-notifier'
