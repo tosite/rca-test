@@ -45,3 +45,4 @@ jobs:
           showReleasedPulls: 1
           releasedDays: 100
           slackWebhook: ${{ secrets.SLACK_WEBHOOK }}
+          TargetRepositories: 'tosite/rca-test,tosite/notion-notifier'
